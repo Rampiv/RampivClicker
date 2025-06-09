@@ -48,7 +48,6 @@ export function Game() {
 
   useEffect(() => {
     let timer: number | undefined
-    setHistory(loadData())
     if (isGameRunning && timeLeft > 0) {
       timer = setInterval(() => {
         setTimeLeft(prev => +(prev - 0.1).toFixed(1))
@@ -66,6 +65,10 @@ export function Game() {
       setHistory(loadData())
     }
   }, [isGameRunning, timeLeft, score])
+
+  useEffect(() => {
+    setHistory(loadData())
+  }, [])
 
   return (
     <div className="game">

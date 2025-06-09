@@ -1,47 +1,11 @@
+import { memo } from "react"
 import "./History.scss"
 
 interface Props {
   history: Number[]
 }
 
-const max = [
-  "СТОП! Ты сломал пространственно-кликовый континуум!",
-  "Мы вызываем саппорт — наш счетчик не готов к такому уровню мастерства!",
-  "Тыыыы... это уже не кликер, это ЦЕРН тестирует новый адронный коллайдер!",
-]
-
-const medium = [
-  "Ты перешел на клики мыслью? Руки уже не успевают!",
-  "Гугл хочет нанять тебя для тестирования своих серверов!",
-  "Если бы клики были аплодисментами, ты бы уже сорвал Оскар!",
-  "Ты кликаешь так быстро, что даже мышка начала подозревать неладное!",
-  "Если бы клики были деньгами, ты бы уже купил себе остров!",
-  "Сервер дрожит от твоих кликов, как студент перед сессией!",
-]
-
-const low = [
-  "Это не клики, это ты Morse-кодом 'SOS' стучишь!",
-  "Так, соберись",
-  "Куда спешишь? Оставь немного кликов и для других!",
-  "Это была разминка",
-  "Твои клики — как попкорн в микроволновке: чем дальше, тем веселее!",
-  "Если кликать в такт, получится техно-хит. Продолжай!",
-  "Стоп! Кто-то же должен считать эти клики... (это я, я должен)",
-  "Неплохо! Но если будешь кликать еще быстрее, мы вызовем экзорциста!",
-  "Рекорд? Рекорд — это когда пальцы дымятся. Ты пока только разгоняешься!",
-]
-
-export const History = ({ history }: Props) => {
-  const getRandomPhrase = (value: number) => {
-    if (value >= 12) {
-      return max[Math.floor(Math.random() * max.length)]
-    } else if (value >= 10) {
-      return medium[Math.floor(Math.random() * medium.length)]
-    } else {
-      return low[Math.floor(Math.random() * low.length)]
-    }
-  }
-
+export const History = memo(({ history }: Props) => {
   return (
     <div className="history">
       <ul className="history__list">
@@ -50,8 +14,9 @@ export const History = ({ history }: Props) => {
             const numValue = Number(item)
             return (
               <li key={index}>
-                <p className="history__text">Результат: <strong>{numValue}</strong></p>
-                <p className="history__text"><em>{getRandomPhrase(numValue)}</em></p>
+                <p className="history__text">
+                  Предыдущий результат: <strong>{numValue}</strong>
+                </p>
               </li>
             )
           })
@@ -61,4 +26,4 @@ export const History = ({ history }: Props) => {
       </ul>
     </div>
   )
-}
+})
