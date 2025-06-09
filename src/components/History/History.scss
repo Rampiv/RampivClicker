@@ -1,6 +1,15 @@
 @use "../../styles/style.scss" as *;
 
 .history {
-  @include listReset();
   width: 100%;
+  padding: 0 5%;
+  &__list {
+    @include listReset();
+    @include flexible();
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__text {
+    @include textReset();
+  }
 }
