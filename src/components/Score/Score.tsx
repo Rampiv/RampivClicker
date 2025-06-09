@@ -31,19 +31,26 @@ const low = [
 
 export const Score = ({ score }: Props) => {
   const getRandomPhrase = (value: number) => {
-    if (value >= 12) {
-      return max[Math.floor(Math.random() * max.length)]
-    } else if (value >= 10) {
-      return medium[Math.floor(Math.random() * medium.length)]
-    } else {
-      return low[Math.floor(Math.random() * low.length)]
+    switch (true) {
+      case value === 0:
+        return "Ну-с, покажи мне скорость твоих пальчиков!"
+      case value >= 12:
+        return max[Math.floor(Math.random() * max.length)]
+      case value >= 10:
+        return medium[Math.floor(Math.random() * medium.length)]
+      default:
+        return low[Math.floor(Math.random() * low.length)]
     }
   }
 
   return (
     <div className="score">
       <p>Кликов: {score}</p>
-      <p><strong><em>{getRandomPhrase(score)}</em></strong></p>
+      <p>
+        <strong>
+          <em>{getRandomPhrase(score)}</em>
+        </strong>
+      </p>
     </div>
   )
 }
