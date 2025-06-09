@@ -1,0 +1,6 @@
+@use "../../styles/style.scss" as *;
+
+.history {
+  @include listReset();
+  width: 100%;
+}

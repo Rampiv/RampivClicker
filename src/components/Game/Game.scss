@@ -1,0 +1,17 @@
+.game {
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.timer, .score {
+  font-size: 24px;
+  margin: 10px;
+}

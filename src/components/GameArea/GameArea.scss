@@ -1,0 +1,32 @@
+.game-area {
+  width: 500px;
+  height: 300px;
+  margin: 20px auto;
+  position: relative;
+  border: 2px dashed #ccc;
+}
+
+.target {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.square {
+  border-radius: 0;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid;
+}
