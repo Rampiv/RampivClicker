@@ -50,6 +50,7 @@ export function Game() {
 
   useEffect(() => {
     let timer: number | undefined
+    setEndGameScore(0)
     if (isGameRunning && timeLeft > 0) {
       timer = setInterval(() => {
         setTimeLeft(prev => +(prev - 0.1).toFixed(1))
