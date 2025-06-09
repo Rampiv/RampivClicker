@@ -33,8 +33,8 @@ export function Game() {
   const spawnTarget = () => {
     const newTarget = {
       id: Date.now(),
-      x: Math.random() * 70,
-      y: Math.random() * 70,
+      x: 10 + Math.random() * 60,
+      y: 10 + Math.random() * 60,
       color: getRandomColor(),
       shape: getRandomShape(),
     }
@@ -82,7 +82,7 @@ export function Game() {
       </button>
       <Timer timeLeft={timeLeft} />
       <Score score={score} />
-      <Jokes score={endGameScore}/>
+      <Jokes score={endGameScore} />
       <GameArea
         target={target ? target : null}
         onTargetClick={handleTargetClick}
