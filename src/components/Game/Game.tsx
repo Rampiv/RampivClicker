@@ -5,6 +5,7 @@ import { Score } from "../Score"
 import { GameArea } from "../GameArea"
 import "./Game.scss"
 import { History } from "../History"
+import { Jokes } from "../Jokes"
 
 interface Target {
   id: number
@@ -20,6 +21,7 @@ export function Game() {
   const [isGameRunning, setIsGameRunning] = useState(false)
   const [target, setTarget] = useState<Target | null>(null)
   const [history, setHistory] = useState([])
+  const [endGameScore, setEndGameScore] = useState(0)
 
   const startGame = () => {
     setIsGameRunning(true)
@@ -62,6 +64,7 @@ export function Game() {
   useEffect(() => {
     if (!isGameRunning && timeLeft <= 0) {
       saveData(score)
+      setEndGameScore(score)
       setHistory(loadData())
     }
   }, [isGameRunning, timeLeft, score])
@@ -78,6 +81,7 @@ export function Game() {
       </button>
       <Timer timeLeft={timeLeft} />
       <Score score={score} />
+      <Jokes score={endGameScore}/>
       <GameArea
         target={target ? target : null}
         onTargetClick={handleTargetClick}
