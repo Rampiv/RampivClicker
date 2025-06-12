@@ -6,11 +6,13 @@ interface Props {
 }
 
 export const History = memo(({ history }: Props) => {
+  const reversedHistory = [...(history || [])].reverse()
   return (
     <div className="history">
+      <p className="history__descr"><strong>История попыток от новых к старым ↓</strong></p>
       <ul className="history__list">
         {history ? (
-          history.map((item, index) => {
+          reversedHistory.map((item, index) => {
             const numValue = Number(item)
             return (
               <li key={index}>

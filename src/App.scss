@@ -54,3 +54,10 @@ body {
 .opacity {
   opacity: 1;
 }
+
+
+@media (max-width: 320px) {
+.App{
+  width: 320px;
+}
+}
